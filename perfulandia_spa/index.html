@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfulandia SPA – Cosmeticos y Perfumes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Perfulandia <span>SPA</span></a>
+      <nav class="main-nav" aria-label="Navegacion principal">
+        <a class="active" href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html" id="cart-link">Carrito <span id="cart-count" class="badge" aria-label="Productos en carrito">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero hero-full" aria-label="Hero - Perfumes y cosmeticos">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Perfulandia SPA</h1>
+        <p class="lead">Fragancias y belleza para cada momento. Compra online con seguridad.</p>
+        <div class="hero-cta">
+          <a class="btn" href="productos.html">Ver catalogo</a>
+          <button class="btn btn-ghost" id="open-login">Iniciar sesion</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="auth container" id="auth">
+      <div class="tabs" role="tablist" aria-label="Autenticacion">
+        <button class="tab active" data-tab="login" aria-selected="true">Iniciar sesion</button>
+        <button class="tab" data-tab="register" aria-selected="false">Registrarse</button>
+      </div>
+
+      <form id="form-login" class="card" novalidate aria-labelledby="login-title">
+        <h2 id="login-title">Accede para obtener descuentos</h2>
+        <div class="field">
+          <label for="login-email">Correo electronico</label>
+          <input id="login-email" name="email" type="email" required placeholder="tucorreo@example.com" />
+          <small class="error" data-error-for="login-email"></small>
+        </div>
+        <div class="field">
+          <label for="login-password">Contraseña</label>
+          <input id="login-password" name="password" type="password" minlength="6" required placeholder="Mínimo 6 caracteres" />
+          <small class="error" data-error-for="login-password"></small>
+        </div>
+        <button type="submit" class="btn">Iniciar sesion</button>
+        <p class="form-hint">¿No tienes cuenta? <button type="button" class="link" data-switch="register">Crear cuenta</button></p>
+        <div class="form-msg" id="login-msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <form id="form-register" class="card hidden" novalidate aria-labelledby="register-title">
+        <h2 id="register-title">Crear cuenta</h2>
+        <div class="field">
+          <label for="reg-name">Nombre completo</label>
+          <input id="reg-name" name="name" type="text" required placeholder="Nombre y apellido" />
+          <small class="error" data-error-for="reg-name"></small>
+        </div>
+        <div class="field">
+          <label for="reg-email">Correo electronico</label>
+          <input id="reg-email" name="email" type="email" required />
+          <small class="error" data-error-for="reg-email"></small>
+        </div>
+        <div class="field">
+          <label for="reg-password">Contraseña</label>
+          <input id="reg-password" name="password" type="password" minlength="6" required />
+          <small class="error" data-error-for="reg-password"></small>
+        </div>
+        <div class="field">
+          <label for="reg-password2">Confirmar contraseña</label>
+          <input id="reg-password2" name="password2" type="password" minlength="6" required />
+          <small class="error" data-error-for="reg-password2"></small>
+        </div>
+        <button type="submit" class="btn">Registrarme</button>
+        <p class="form-hint">¿Ya tienes cuenta? <button type="button" class="link" data-switch="login">Inicia sesión</button></p>
+        <div class="form-msg" id="register-msg" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="container" id="contacto">
+      <div class="card">
+        <h2>Contacto</h2>
+        <p>¿Tienes dudas? Escribenos y te responderemos pronto.</p>
+        <form id="form-contact" novalidate>
+          <div class="grid">
+            <div class="field">
+              <label for="c-name">Nombre</label>
+              <input id="c-name" name="name" type="text" required />
+              <small class="error" data-error-for="c-name"></small>
+            </div>
+            <div class="field">
+              <label for="c-email">Correo</label>
+              <input id="c-email" name="email" type="email" required />
+              <small class="error" data-error-for="c-email"></small>
+            </div>
+          </div>
+          <div class="field">
+            <label for="c-subject">Asunto</label>
+            <input id="c-subject" name="subject" type="text" required />
+            <small class="error" data-error-for="c-subject"></small>
+          </div>
+          <div class="field">
+            <label for="c-message">Mensaje</label>
+            <textarea id="c-message" name="message" rows="4" required></textarea>
+            <small class="error" data-error-for="c-message"></small>
+          </div>
+          <button type="submit" class="btn">Enviar</button>
+          <div class="form-msg" id="contact-msg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Perfulandia SPA · <a href="#contacto">Contacto</a> · <a href="productos.html">Catálogo</a></p>
+      <small>Proyecto academico – Sitio estatico (HTML, CSS, JS)</small>
+    </div>
+  </footer>
+</body>
+</html>

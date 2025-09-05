@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfulandia – Carrito</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Perfulandia <span>SPA</span></a>
+      <nav class="main-nav" aria-label="Navegacion principal">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a class="active" href="carrito.html" id="cart-link">Carrito <span id="cart-count" class="badge">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Tu carrito</h1>
+
+    <section class="card">
+      <div id="cart-empty" class="muted">Aun no has agregado productos.</div>
+      <ul id="cart-list" class="cart-list"></ul>
+      <div class="cart-footer">
+        <div class="total">Total: <strong id="cart-total">$0</strong></div>
+        <button id="checkout" class="btn">Finalizar compra</button>
+      </div>
+      <div class="form-msg" id="checkout-msg" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="checkout-form-section" class="card hidden" aria-hidden="true" style="margin-top:1rem;">
+      <h2>Formulario de pago y envio</h2>
+      <form id="checkout-form" novalidate>
+        <div class="field">
+          <label for="ship-name">Nombre completo</label>
+          <input id="ship-name" name="name" required />
+          <small class="error" data-error-for="ship-name"></small>
+        </div>
+        <div class="field">
+          <label for="ship-address">Direccion de envio</label>
+          <input id="ship-address" name="address" required />
+          <small class="error" data-error-for="ship-address"></small>
+        </div>
+        <div class="grid grid-3">
+          <div class="field">
+            <label for="ship-city">Ciudad / Region</label>
+            <input id="ship-city" name="city" required />
+            <small class="error" data-error-for="ship-city"></small>
+          </div>
+          <div class="field">
+            <label for="ship-phone">Telefono</label>
+            <input id="ship-phone" name="phone" required />
+            <small class="error" data-error-for="ship-phone"></small>
+          </div>
+          <div class="field">
+            <label for="ship-email">Correo de contacto</label>
+            <input id="ship-email" name="email" type="email" required />
+            <small class="error" data-error-for="ship-email"></small>
+          </div>
+        </div>
+
+        <h3>Pago</h3>
+        <div class="field">
+          <label for="card-number">Numero de tarjeta</label>
+          <input id="card-number" name="card" inputmode="numeric" maxlength="19" placeholder="1234 1234 1234 1234" required />
+          <small class="error" data-error-for="card-number"></small>
+        </div>
+        <div class="grid grid-3">
+          <div class="field">
+            <label for="card-exp">Vencimiento (MM/AA)</label>
+            <input id="card-exp" name="exp" maxlength="5" placeholder="MM/AA" required />
+            <small class="error" data-error-for="card-exp"></small>
+          </div>
+          <div class="field">
+            <label for="card-cvv">CVV</label>
+            <input id="card-cvv" name="cvv" maxlength="4" inputmode="numeric" required />
+            <small class="error" data-error-for="card-cvv"></small>
+          </div>
+          <div class="field">
+            <label for="card-name">Nombre en la tarjeta</label>
+            <input id="card-name" name="cardname" required />
+            <small class="error" data-error-for="card-name"></small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Confirmar pedido</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Perfulandia SPA</p>
+    </div>
+  </footer>
+</body>
+</html>
