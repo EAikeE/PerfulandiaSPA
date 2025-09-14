@@ -87,6 +87,6 @@ Si lo deseas offline, descarga el script y actualiza el `<script src=...>` en la
 | Mensajes modales | `app.js` | Funciones `alertQuick`, uso de `Swal.fire` |
 
 ## FAQ rápida
-**¿Dónde cambio los productos?** `assets/js/data.js`.
-**¿Cómo reinicio datos?** Limpia `localStorage` desde DevTools o ejecutar en consola: `localStorage.clear()`.
-**¿Se puede usar sin Internet?** Sí, salvo CDN de SweetAlert2 y Font Awesome (descarga local si deseas offline total).
+- **¿Dónde cambio los productos?** `assets/js/data.js`.
+- **¿Cómo reinicio datos?** Limpia `localStorage` desde DevTools o ejecutar en consola: `localStorage.clear()`.
+- **¿Se puede usar sin Internet?** Sí, salvo CDN de SweetAlert2 y Font Awesome (descarga local si deseas offline total).
