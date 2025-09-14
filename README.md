@@ -86,42 +86,7 @@ Si lo deseas offline, descarga el script y actualiza el `<script src=...>` en la
 | Páginas protegidas | `app.js` | Array `PROTECTED_PAGES` |
 | Mensajes modales | `app.js` | Funciones `alertQuick`, uso de `Swal.fire` |
 
-## Troubleshooting
-| Problema | Causa | Solución |
-|----------|-------|----------|
-| Rutas de login duplicadas (`assets/pages/assets/pages/login.html`) | Acceso desde subruta sin cálculo dinámico | Ya corregido con lógica `rootPrefix` y `loginPath` en `app.js` |
-| No abre modal de producto | Bloqueo de popup / script no cargó | Ver consola y comprobar carga de `data.js` |
-| Carrito no persiste | Bloqueo de `localStorage` | Revisar modo incógnito / permisos |
-| Estilos rotos al abrir directo con file:// | Sin servidor | Usar Live Server o método alterno |
-
-## Seguridad (Limitaciones)
-Este proyecto NO usa backend ni base de datos real:
-- No hay SQL, la "inyección" se limita a intentos de romper validaciones front-end.
-- Datos quedan en `localStorage` (fáciles de manipular desde DevTools).
-- No usar en producción sin: backend seguro, hashing salado, JWT/sesiones, rate limiting y captcha.
-
-## Accesibilidad
-- Uso de `aria-label`, `role="menu"`, estados `aria-expanded`.
-- Focus manejado en dropdown (tecla Escape para cerrar).
-- Mensajes de error asociados a inputs vía `data-error-for`.
-
-## Scripts / Build
-No hay scripts de construcción. Puedes empaquetar si quieres con un simple zip o integrar un bundler (Vite, esbuild) si el proyecto crece.
-
-## Próximas mejoras sugeridas
-- Hash de contraseñas (SHA-256) antes de guardar (solo demostración educativa).
-- Lista dinámica de requisitos de contraseña mientras escribe.
-- Paginación de catálogo / lazy loading.
-- Modo oscuro/claro con toggle.
-- Internacionalización.
-
 ## FAQ rápida
 **¿Dónde cambio los productos?** `assets/js/data.js`.
 **¿Cómo reinicio datos?** Limpia `localStorage` desde DevTools o ejecutar en consola: `localStorage.clear()`.
 **¿Se puede usar sin Internet?** Sí, salvo CDN de SweetAlert2 y Font Awesome (descarga local si deseas offline total).
-
-## Licencia
-(No se especificó licencia; agrega una si publicarás el repo.)
-
----
-¿Necesitas versión en inglés, agregar capturas o badges? Pídelo y lo ajusto.
