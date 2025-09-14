@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfulandia – Carrito</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+  <script defer src="../js/app.js"></script>
+  <script defer src="../js/data.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="logo">Perfulandia <span>SPA</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="primary-nav" aria-label="Navegacion principal">
+        <a href="../../index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a class="active" href="carrito.html" id="cart-link">Carrito <span id="cart-count" class="badge">0</span></a>
+        <div class="auth-menu" id="auth-menu">
+          <button class="btn-auth" id="auth-toggle" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-user"></i><span>Acceder</span><i class="fa-solid fa-chevron-down"
+              style="font-size:.6rem; opacity:.6;"></i>
+          </button>
+          <div class="auth-dropdown" role="menu" aria-label="Acceso de usuario">
+            <a href="login.html" role="menuitem"><i class="fa-solid fa-user"></i><span>Iniciar
+                sesión</span></a>
+            <a href="register.html" role="menuitem"><i class="fa-regular fa-id-card"></i><span>Crear cuenta</span></a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Tu carrito</h1>
+
+    <div class="cart-layout">
+      <section class="card cart-items">
+        <div id="cart-empty" class="muted">Aun no has agregado productos.</div>
+        <ul id="cart-list" class="cart-list"></ul>
+      </section>
+      <aside class="card cart-summary" id="cart-summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Resumen</h2>
+        <div class="summary-lines">
+          <div class="line"><span>Subtotal</span><span id="cart-subtotal">$0</span></div>
+          <div class="total-line"><span>Total</span><strong id="cart-total">$0</strong></div>
+        </div>
+        <button id="checkout" class="btn btn-primary checkout-btn">Procesar compra</button>
+        <div class="form-msg" id="checkout-msg" role="status" aria-live="polite"></div>
+      </aside>
+    </div>
+
+    <section id="checkout-form-section" class="card hidden" aria-hidden="true" style="margin-top:1rem;">
+      <h2>Formulario de pago y envio</h2>
+      <form id="checkout-form" novalidate>
+        <div class="field">
+          <label for="ship-name">Nombre completo</label>
+          <div class="input-icon"><i class="fa-solid fa-user"></i><input id="ship-name" name="name" required /></div>
+          <small class="error" data-error-for="ship-name"></small>
+        </div>
+        <div class="field">
+          <label for="ship-address">Direccion de envio</label>
+          <div class="input-icon"><i class="fa-solid fa-location-dot"></i><input id="ship-address" name="address"
+              required /></div>
+          <small class="error" data-error-for="ship-address"></small>
+        </div>
+        <div class="checkout-grid">
+          <div class="field">
+            <label for="ship-city">Ciudad / Region</label>
+            <div class="input-icon"><i class="fa-solid fa-city"></i><input id="ship-city" name="city" required /></div>
+            <small class="error" data-error-for="ship-city"></small>
+          </div>
+          <div class="field">
+            <label for="ship-phone">Telefono</label>
+            <div class="input-icon"><i class="fa-solid fa-phone"></i><input id="ship-phone" name="phone" required />
+            </div>
+            <small class="error" data-error-for="ship-phone"></small>
+          </div>
+          <div class="field">
+            <label for="ship-email">Correo de contacto</label>
+            <div class="input-icon"><i class="fa-solid fa-envelope"></i><input id="ship-email" name="email" type="email"
+                required /></div>
+            <small class="error" data-error-for="ship-email"></small>
+          </div>
+        </div>
+
+        <h3>Pago</h3>
+        <div class="field">
+          <label for="card-number">Numero de tarjeta</label>
+          <div class="input-icon"><i class="fa-solid fa-credit-card"></i><input id="card-number" name="card"
+              inputmode="numeric" maxlength="19" placeholder="1234 1234 1234 1234" required /></div>
+          <small class="error" data-error-for="card-number"></small>
+        </div>
+        <div class="checkout-grid">
+          <div class="field">
+            <label for="card-exp">Vencimiento (MM/AA)</label>
+            <div class="input-icon"><i class="fa-regular fa-calendar"></i><input id="card-exp" name="exp" maxlength="5"
+                placeholder="MM/AA" required /></div>
+            <small class="error" data-error-for="card-exp"></small>
+          </div>
+          <div class="field">
+            <label for="card-cvv">CVV</label>
+            <div class="input-icon"><i class="fa-solid fa-shield-halved"></i><input id="card-cvv" name="cvv"
+                maxlength="4" inputmode="numeric" required /></div>
+            <small class="error" data-error-for="card-cvv"></small>
+          </div>
+          <div class="field">
+            <label for="card-name">Nombre en la tarjeta</label>
+            <div class="input-icon"><i class="fa-solid fa-id-card-clip"></i><input id="card-name" name="cardname"
+                required /></div>
+            <small class="error" data-error-for="card-name"></small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn order-submit" id="order-submit">
+          <span class="btn-inner">
+            <i class="fa-solid fa-lock"></i>
+            <span class="label">Confirmar pedido</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </span>
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Derechos Reservados Perfulandia SPA</p>
+      <small>Proyecto academico</small>
+    </div>
+  </footer>
+</body>
+
+</html>

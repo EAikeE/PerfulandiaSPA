@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Iniciar sesión – Perfulandia SPA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script defer src="../js/data.js"></script>
+    <script defer src="../js/app.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../../index.html" class="logo">Perfulandia <span>SPA</span></a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav" id="primary-nav" aria-label="Navegacion principal">
+                <a href="../../index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="carrito.html" id="cart-link">Carrito <span id="cart-count" class="badge"
+                        aria-label="Productos en carrito">0</span></a>
+                <div class="auth-menu" id="auth-menu">
+                    <button class="btn-auth" id="auth-toggle" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i><span>Acceder</span><i class="fa-solid fa-chevron-down"
+                            style="font-size:.6rem; opacity:.6;"></i>
+                    </button>
+                    <div class="auth-dropdown" role="menu" aria-label="Acceso de usuario">
+                        <a href="login.html" role="menuitem"><i class="fa-solid fa-user"></i><span>Iniciar
+                                sesión</span></a>
+                        <a href="register.html" role="menuitem"><i class="fa-regular fa-id-card"></i><span>Crear
+                                cuenta</span></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="auth-wrap">
+            <form id="form-login" class="auth-card" novalidate aria-labelledby="login-title">
+                <div class="auth-icon-top" aria-hidden="true"></div>
+                <h1 id="login-title">Bienvenido</h1>
+                <p class="muted">Ingresa para continuar con tus compras y beneficios.</p>
+                <div class="auth-grid">
+                    <div class="field">
+                        <label for="login-email">Correo</label>
+                        <div class="input-icon small"><i class="fa-solid fa-at"></i><input id="login-email" name="email"
+                                type="email" required placeholder="tucorreo@example.com" /></div>
+                        <small class="error" data-error-for="login-email"></small>
+                    </div>
+                    <div class="field">
+                        <label for="login-password">Contraseña</label>
+                        <div class="input-icon small"><i class="fa-solid fa-lock"></i><input id="login-password"
+                                name="password" type="password" minlength="6" required
+                                placeholder="Mínimo 6 caracteres" /></div>
+                        <small class="error" data-error-for="login-password"></small>
+                    </div>
+                </div>
+                <div class="auth-actions">
+                    <button type="submit" class="btn" style="display:flex; align-items:center; gap:.5rem; font-weight:600; font-size:.85rem;"><i class="fa-solid fa-arrow-right-to-bracket"></i><span>Iniciar sesión</span></button>
+                    <p class="alt-link">¿No tienes cuenta? <a href="register.html">Crear cuenta</a></p>
+                    <div class="form-msg" id="login-msg" role="status" aria-live="polite"></div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Derechos Reservados Perfulandia SPA</p>
+            <small>Proyecto academico</small>
+        </div>
+    </footer>
+</body>
+
+</html>
